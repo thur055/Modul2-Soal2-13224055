@@ -87,10 +87,10 @@ int main (){
     
     for(int k = 0; k < j;k++){
         if(k == 0){
-            if (arr[k] < arr[1]){
-                out[x] = k+1;
-                x++;
-            }
+            
+        }
+        else if (k == j){
+            
         }
         else{
             if(arr[k] < arr[k-1] && arr[k] < arr[k+1]){
