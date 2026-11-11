@@ -45,7 +45,7 @@ int main (){
     Node *N = (Node*)malloc(sizeof(Node));
     initList(&L);
     int height;
-    char check;
+    char check = 'a';
     int i = 0;
     while (check != '\n'){
         Node* temp = (Node*)malloc(sizeof(Node));
