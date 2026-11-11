@@ -37,22 +37,32 @@ void pop(List *L, Node* N){
     }
     N = L->head;
     L->head = N->Next;
-    //printf("%d\n", N->height);
+    printf("Popped height: %d\n", N->height);
 }
 
 int main (){
     List L;
+    char check = 'a';
     Node *N = (Node*)malloc(sizeof(Node));
     initList(&L);
     int height;
-    char check = 'a';
-    int i = 0;
-    while (check != '\n'){
+    int i = 0, a = 0;
+    char* string = (char*)malloc(sizeof(char)*MAX_LEN);
+    gets(string);
+    //printf("%s", string);
+    while (string[i] != '\0'){
         Node* temp = (Node*)malloc(sizeof(Node));
-        scanf("%d%c", &height, &check);
-        createNode(height, temp);
-        push(&L, temp);
-        i++;
+        if(string[i] == ' '){
+            i++;
+            //printf("inispasi\n");
+        }
+        else{
+            height = string[i] - '0';
+            //printf("Height: %d\n", height);
+            createNode(height, temp);
+            push(&L, temp);
+            i++;
+        }
     }
     int arr[i], out[i];
     int j = 0, x = 0;
@@ -61,23 +71,25 @@ int main (){
         pop(&L, N);
         j++;
     }
-    for(int k = 0; k < i;k++){
+    
+    for(int k = 0; k < j;k++){
         if(k == 0){
             if (arr[k] < arr[1]){
-                out[x] = arr[k];
+                out[x] = k+1;
                 x++;
             }
         }
         else{
             if(arr[k] < arr[k-1] && arr[k] < arr[k+1]){
-                out[x] = arr[k];
+                out[x] = k+1;
                 x++;
             }
         }
+        //printf("%d\n", arr[k]);
     }
-    for (int y = x-1; y>0;y--){
+    for (int y = x-1; y>=0;y--){
         printf("%d ", out[y]);
     }
-    printf("%d\n", out[0]);
+    
     
 }
