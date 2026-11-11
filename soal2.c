@@ -100,7 +100,7 @@ int main (){
         }
         //printf("%d\n", arr[k]);
     }
-    if (x == 0){
+    if (x == 0 || x == 1){
         printf("NONE");
     }
     else{
