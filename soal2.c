@@ -37,7 +37,7 @@ void pop(List *L, Node* N){
     }
     N = L->head;
     L->head = N->Next;
-    printf("Popped height: %d\n", N->height);
+    //printf("Popped height: %d\n", N->height);
 }
 
 int main (){
@@ -47,9 +47,21 @@ int main (){
     initList(&L);
     int height;
     int i = 0, a = 0;
-    char* string = (char*)malloc(sizeof(char)*MAX_LEN);
-    gets(string);
-    //printf("%s", string);
+    //char* string = (char*)malloc(sizeof(char)*MAX_LEN);
+    while(scanf("%d", &height) == 1){
+        Node* temp = (Node*)malloc(sizeof(Node));
+        //printf("%d ", height);
+        scanf("%c", &check);
+        if(check == '\n'){
+            break;
+        }
+        createNode(height, temp);
+        push(&L, temp);
+        i++;
+    }
+
+    /*
+    
     while (string[i] != '\0'){
         Node* temp = (Node*)malloc(sizeof(Node));
         if(string[i] == ' '){
@@ -64,6 +76,7 @@ int main (){
             i++;
         }
     }
+    */
     int arr[i], out[i];
     int j = 0, x = 0;
     while (L.head != NULL){
@@ -87,9 +100,13 @@ int main (){
         }
         //printf("%d\n", arr[k]);
     }
-    for (int y = x-1; y>=0;y--){
-        printf("%d ", out[y]);
+    if (x == 0){
+        printf("NONE");
     }
-    
-    
+    else{
+        for (int y = 0; y<x-1;y++){
+            printf("%d ", out[y]);
+        }
+        printf("%d ", out[x-1]);
+    }
 }
