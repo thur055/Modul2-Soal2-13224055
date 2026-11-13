@@ -52,12 +52,12 @@ int main (){
         Node* temp = (Node*)malloc(sizeof(Node));
         //printf("%d ", height);
         scanf("%c", &check);
-        if(check == '\n'){
-            break;
-        }
         createNode(height, temp);
         push(&L, temp);
         i++;
+        if(check == '\n'){
+            break;
+        }
     }
 
     /*
@@ -89,7 +89,7 @@ int main (){
         if(k == 0){
             
         }
-        else if (k == j){
+        else if (k == j-1){
             
         }
         else{
@@ -100,7 +100,7 @@ int main (){
         }
         //printf("%d\n", arr[k]);
     }
-    if (x == 0 || x == 1){
+    if (x == 0){
         printf("NONE");
     }
     else{
